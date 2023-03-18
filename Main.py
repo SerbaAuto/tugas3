@@ -4,7 +4,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import altair as alt
 import plotly.figure_factory as ff
-
+from bokeh.plotting import figure
+import pydeck as pdk
+import graphviz
 
 # 1.  Write and Magic
 st.write('''
@@ -142,29 +144,134 @@ st.vega_lite_chart(chart_data, {
 
 st.write('''
 # 4f. Streamlit Plotly Chart
+# ''')
+
+# x1 = np.random.randn(200) - 2
+# x2 = np.random.randn(200)
+# x3 = np.random.randn(200) + 2
+
+# # Group data together
+# hist_data = [x1, x2, x3]
+
+# group_labels = ['Group 1', 'Group 2', 'Group 3']
+
+# # Create distplot with custom bin_size
+# fig = ff.create_distplot(
+#         hist_data, group_labels, bin_size=[.1, .25, .5])
+
+# # Plot!
+# st.plotly_chart(fig, use_container_width=True)
+
+
+st.write('''
+# 4g. Streamlit Bokeh Chart
+''')
+x = [1, 2, 3, 4, 5]
+y = [6, 7, 2, 4, 5]
+
+p = figure(
+    title='simple line example',
+    x_axis_label='x',
+    y_axis_label='y')
+
+p.line(x, y, legend_label='Trend', line_width=2)
+
+st.bokeh_chart(p, use_container_width=True)
+
+st.write('''
+# 4h. Streamlit Pydeck Chart
 ''')
 
-x1 = np.random.randn(200) - 2
-x2 = np.random.randn(200)
-x3 = np.random.randn(200) + 2
+chart_data = pd.DataFrame(
+   np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+   columns=['lat', 'lon'])
 
-# Group data together
-hist_data = [x1, x2, x3]
+st.pydeck_chart(pdk.Deck(
+    map_style=None,
+    initial_view_state=pdk.ViewState(
+        latitude=37.76,
+        longitude=-122.4,
+        zoom=11,
+        pitch=50,
+    ),
+    layers=[
+        pdk.Layer(
+           'HexagonLayer',
+           data=chart_data,
+           get_position='[lon, lat]',
+           radius=200,
+           elevation_scale=4,
+           elevation_range=[0, 1000],
+           pickable=True,
+           extruded=True,
+        ),
+        pdk.Layer(
+            'ScatterplotLayer',
+            data=chart_data,
+            get_position='[lon, lat]',
+            get_color='[200, 30, 0, 160]',
+            get_radius=200,
+        ),
+    ],
+))
+st.write('''
+# 4i. Streamlit Graphviz Chart
+''')
 
-group_labels = ['Group 1', 'Group 2', 'Group 3']
+graph = graphviz.Digraph()
+graph.edge('run', 'intr')
+graph.edge('intr', 'runbl')
+graph.edge('runbl', 'run')
+graph.edge('run', 'kernel')
+graph.edge('kernel', 'zombie')
+graph.edge('kernel', 'sleep')
+graph.edge('kernel', 'runmem')
+graph.edge('sleep', 'swap')
+graph.edge('swap', 'runswap')
+graph.edge('runswap', 'new')
+graph.edge('runswap', 'runmem')
+graph.edge('new', 'runmem')
+graph.edge('sleep', 'runmem')
 
-# Create distplot with custom bin_size
-fig = ff.create_distplot(
-        hist_data, group_labels, bin_size=[.1, .25, .5])
+st.graphviz_chart(graph)
 
+st.write('''
+# 4j. Streamlit Map Chart
+''')
 
+df = pd.DataFrame(
+    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
+    columns=['lat', 'lon'])
 
-# Plot!
-st.plotly_chart(fig, use_container_width=True)
-
+st.table(df)
+st.map(df)
 # 5.  Input Widget
+st.header("5 Input Widget")
+st.write('''
+# 5a. Streamlit Button
+''')
+
+if st.button('Say hello'):
+    st.write('Why hello there')
+else:
+    st.write('Goodbye')
+
+st.header("5b. Streamlit Experimental_data_editor")
+
+df = pd.DataFrame(
+    [
+       {"command": "st.selectbox", "rating": 4, "is_widget": True},
+       {"command": "st.balloons", "rating": 5, "is_widget": False},
+       {"command": "st.time_input", "rating": 3, "is_widget": True},
+   ]
+)
+edited_df = st.experimental_data_editor(df)
+
+favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
+st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 # 6.  Media Element
 # 7.  Layout and Container
 # 8.  Status Element
 # 9.  Control Flow
 # 10. Utilities
+    
