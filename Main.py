@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+import altair as alt
 
 
 # 1.  Write and Magic
@@ -45,13 +47,84 @@ st.latex(r'''
 
 
 # 3.  Data Display Element
-
+st.write('''
+# 3a. Streamlit Dataframe
+''')
 df = pd.DataFrame(
-   np.random.randn(50, 20),
-   columns=('col %d' % i for i in range(20)))
+   np.random.randn(50, 3),
+   columns=('col %d' % i for i in range(3)))
 
 st.dataframe(df)
+st.write('''
+# 3b. Streamlit Table
+''')
+st.table(df)
+
+st.write('''
+# 3c. Strealit Metric
+''')
+
+col1, col2, col3 = st.columns(3)
+col1.metric("Temperature", "70 °F", "1.2 °F")
+col2.metric("Wind", "9 mph", "-8%")
+col3.metric("Humidity", "86%", "4%")
+col3.metric(label="Humidity",value="86%",delta="4%",delta_color="inverse")
+
+st.write('''
+# 3d. Strealit json
+''')
+
+st.json({
+    'foo': 'bar',
+    'baz': 'boz',
+    'stuff': [
+        'stuff 1',
+        'stuff 2',
+        'stuff 3',
+        'stuff 5',
+    ],
+})
+
 # 4.  Chart Element
+
+st.write('''
+# 4a. Strealit Line Chart
+''')
+st.line_chart(df)
+
+st.write('''
+# 4b. Strealit Area Chart
+''')
+st.area_chart(df)
+
+st.write('''
+# 4c. Strealit Bar Chart
+''')
+st.bar_chart(df)
+
+st.write('''
+# 4d. Strealit Pyplot
+''')
+
+arr = np.random.normal(1, 1, size=100)
+fig, ax = plt.subplots()
+ax.hist(arr, bins=20)
+
+st.pyplot(fig)
+
+st.write('''
+# 4e. Streamlit Altair
+''')
+
+chart_data = pd.DataFrame(
+    np.random.randn(20, 3),
+    columns=['a', 'b', 'c'])
+
+c = alt.Chart(chart_data).mark_circle().encode(
+    x='a', y='b', size='c', color='c', tooltip=['a', 'b', 'c'])
+
+st.altair_chart(c, use_container_width=True)
+
 # 5.  Input Widget
 # 6.  Media Element
 # 7.  Layout and Container
