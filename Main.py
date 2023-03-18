@@ -1,29 +1,56 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 
 
 # 1.  Write and Magic
-st.write("Magic Appear")
+st.write('''
+# 1. Write and Magic
 
-df = pd.DataFrame({'col1': [1,2,3]})
-df  # 👈 Draw the dataframe
-
-x = 10
-'x', x  # 👈 Draw the string 'x' and then the value of x
-
-# Also works with most supported chart types
-import matplotlib.pyplot as plt
-import numpy as np
-
-arr = np.random.normal(1, 1, size=100)
-fig, ax = plt.subplots()
-ax.hist(arr, bins=20)
-
-fig  # 👈 Draw a Matplotlib chart
+This is a _magic_.
+''')
 
 
 # 2.  Text Element
+st.write('''
+# 2. Text Elements
+''')
+         
+st.markdown(" 2a. Streamlit *_Mark_down*")
+st.markdown("Warna :red[Merah] dan Biru bold **:blue[Biru]**.")
+
+st.title("2b. Streamlit Title")
+
+st.header("2c. Header")
+st.subheader("2d. Sub Header")
+st.caption("2e. Caption")
+
+#2f. st.code
+code = '''
+    def HelloWorld():
+        print("2f. Streamlit Code")
+        print("Hello World")
+'''
+
+st.code(code,language="python")
+
+st.text("2g. Streamlit Text")
+
+st.write('''
+# 2h. Streamlit Latex
+''')
+st.latex(r'''
+    a + ar + a r^2 + a r^3 + \cdots + a r^{n-1} = \sum_{k=0}^{n-1} ar^k =  a \left(\frac{1-r^{n}}{1-r}\right)
+    ''')
+
+
 # 3.  Data Display Element
+
+df = pd.DataFrame(
+   np.random.randn(50, 20),
+   columns=('col %d' % i for i in range(20)))
+
+st.dataframe(df)
 # 4.  Chart Element
 # 5.  Input Widget
 # 6.  Media Element
