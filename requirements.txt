@@ -3,4 +3,4 @@ altair
 plotly
 graphviz
 pydeck
-bokeh=='2.4.3.dev1'
+bokeh==2.4.3.dev1
