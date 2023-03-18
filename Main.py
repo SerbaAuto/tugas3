@@ -4,7 +4,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import altair as alt
 import plotly.figure_factory as ff
-import spicy as s
 
 
 # 1.  Write and Magic
