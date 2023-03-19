@@ -7,6 +7,7 @@ import plotly.figure_factory as ff
 from bokeh.plotting import figure
 import pydeck as pdk
 import graphviz
+import datetime
 
 # 1.  Write and Magic
 st.write('''
@@ -336,8 +337,34 @@ txt = st.text_area('Text to analyze', '''
     was the season of Light, it was the season of Darkness, it
     was the spring of hope, it was the winter of despair, (...)
     ''')
-st.write('Sentiment:', run_sentiment_analysis(txt))
+st.write(txt)
 
+st.header("5k. Streamlit Date Input ")
+d = st.date_input(
+    "When\'s your birthday",
+    datetime.date(2023, 3, 19))
+st.write('Your birthday is:', d)
+
+st.header("5l. Streamlit Time Input ")
+t = st.time_input('Set an alarm for', datetime.time(8, 45))
+st.write('Alarm is set for', t)
+
+
+st.header("5m. Streamlit File Uploader ")
+uploaded_file = st.file_uploader("Choose a file CSV")
+if uploaded_file is not None:
+    # To read file as bytes:
+    bytes_data = uploaded_file.getvalue()
+    st.write(bytes_data)
+    # Can be used wherever a "file-like" object is accepted:
+    dataframe = pd.read_csv(uploaded_file)
+    st.table(dataframe)
+
+
+picture = st.camera_input("Take a picture")
+
+if picture:
+    st.image(picture)
 # 6.  Media Element
 # 7.  Layout and Container
 # 8.  Status Element
