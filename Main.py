@@ -574,7 +574,8 @@ with tab10:
     st.header("10f. Experimental Set Query Params")
     st.experimental_set_query_params(
     show_map=True,
-    selected=["Rusia", "america"],
+    selected=["asia", "america"],
     )
+    
     
     
