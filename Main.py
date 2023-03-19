@@ -9,6 +9,7 @@ import pydeck as pdk
 import graphviz
 import datetime
 from PIL import Image
+import os
 
 
 # 1.  Write and Magic
@@ -374,9 +375,9 @@ color = st.color_picker('Pick A Color', '#00f900')
 st.write('The current color is', color)
 # 6.  Media Element
 st.header("6. Media Element ")
-
-image = Image.open('Thumnail Paladin #2.png')
-Image.open()
+dir = os.getcwd()
+st.write(dir)
+image = Image.open('./Thumnail Paladin #2.png')
 
 st.image(image, caption='Channel Youtube : EVAN141')
 
