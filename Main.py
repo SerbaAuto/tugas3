@@ -35,11 +35,27 @@ with st.sidebar:
         st.markdown("[3b. Streamlit Table](#3b-streamlit-table)")
         st.markdown("[3c. Strealit Metric](#3c-strealit-metric)")
         st.markdown("[3d. Strealit json](#3d-strealit-json)")
-
-
-st.header("4. Chart Element")
-st.header("4a. Strealit Line Chart")
-
+    with st.expander("Nomor 4"):
+        st.markdown("[4. Chart Element](#4-chart-element)")
+        st.markdown("[4a. Strealit Line Chart](#4a-strealit-line-chart)")
+        st.markdown("[4b. Strealit Area Chart](#4b-strealit-area-chart)")
+        st.markdown("[4c. Strealit Bar Chart](#4c-strealit-bar-chart)")
+        st.markdown("[4d. Strealit Pyplot](#4d-strealit-pyplot)")
+        st.markdown("[3. Data Display Element](#3-data-display-element)")
+        st.markdown("[3. Data Display Element](#3-data-display-element)")
+        st.markdown("[3. Data Display Element](#3-data-display-element)")
+        st.markdown("[3. Data Display Element](#3-data-display-element)")
+        st.markdown("[3. Data Display Element](#3-data-display-element)")
+        st.markdown("[3. Data Display Element](#3-data-display-element)")
+        st.markdown("[3. Data Display Element](#3-data-display-element)")
+        
+# st.header("4e. Streamlit Altair")
+# st.header("4f. Streamlit Vega Lite Chart")
+# st.header("4g. Streamlit Plotly Chart")
+# st.header("4h. Streamlit Bokeh Chart")
+# st.header("4i. Streamlit Pydeck Chart")
+# st.header("4j. Streamlit Graphviz Chart")
+# st.header("4k. Streamlit Map Chart")
 
 with tab1:
     st.header("1. Write and Magic")
@@ -123,13 +139,10 @@ with tab4:
     st.header("4b. Strealit Area Chart")
     st.area_chart(df)
 
-    st.write("4c. Strealit Bar Chart
-    ''')
+    st.header("4c. Strealit Bar Chart")
     st.bar_chart(df)
 
-    st.write('''
-    # 4d. Strealit Pyplot
-    ''')
+    st.header("4d. Strealit Pyplot")
 
     arr = np.random.normal(1, 1, size=100)
     fig, ax = plt.subplots()
@@ -137,9 +150,7 @@ with tab4:
 
     st.pyplot(fig)
 
-    st.write('''
-    # 4e. Streamlit Altair
-    ''')
+    st.header("4e. Streamlit Altair")
 
     chart_data = pd.DataFrame(
         np.random.randn(20, 3),
@@ -150,9 +161,7 @@ with tab4:
 
     st.altair_chart(c, use_container_width=True)
 
-    st.write('''
-    # 4f. Streamlit Vega Lite Chart
-    ''')
+    st.header("4f. Streamlit Vega Lite Chart")
 
     st.vega_lite_chart(chart_data, {
         'mark': {'type': 'circle', 'tooltip': True},
@@ -164,9 +173,7 @@ with tab4:
         },
     })
 
-    st.write('''
-    # 4f. Streamlit Plotly Chart
-    # ''')
+    st.header("4g. Streamlit Plotly Chart")
 
     # x1 = np.random.randn(200) - 2
     # x2 = np.random.randn(200)
@@ -185,9 +192,7 @@ with tab4:
     # st.plotly_chart(fig, use_container_width=True)
 
 
-    st.write('''
-    # 4g. Streamlit Bokeh Chart
-    ''')
+    st.header("4h. Streamlit Bokeh Chart")
     x = [1, 2, 3, 4, 5]
     y = [6, 7, 2, 4, 5]
 
@@ -200,9 +205,7 @@ with tab4:
 
     st.bokeh_chart(p, use_container_width=True)
 
-    st.write('''
-    # 4h. Streamlit Pydeck Chart
-    ''')
+    st.header("4i. Streamlit Pydeck Chart")
 
     chart_data = pd.DataFrame(
     np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
@@ -236,9 +239,7 @@ with tab4:
             ),
         ],
     ))
-    st.write('''
-    # 4i. Streamlit Graphviz Chart
-    ''')
+    st.header("4j. Streamlit Graphviz Chart")
 
     graph = graphviz.Digraph()
     graph.edge('run', 'intr')
@@ -257,9 +258,7 @@ with tab4:
 
     st.graphviz_chart(graph)
 
-    st.write('''
-    # 4j. Streamlit Map Chart
-    ''')
+    st.header("4k. Streamlit Map Chart")
 
     df = pd.DataFrame(
         np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
