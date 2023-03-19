@@ -268,8 +268,76 @@ df = pd.DataFrame(
 edited_df = st.experimental_data_editor(df)
 
 
-favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["rating"]
+favorite_command = edited_df.loc[edited_df["rating"].idxmax()]["command"]
 st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
+
+
+st.header("5c. Streamlit Button Download ")
+csv = pd.read_csv(st.secrets['public_gsheet_csv']).to_csv()
+
+st.download_button(label="Download File Data",data=csv,file_name="data.csv",mime='text/csv')
+
+st.header("5d. Streamlit CheckBox ")
+agree = st.checkbox('I agree')
+
+if agree:
+    st.write('Great!')
+
+st.header("5e. Streamlit Radio ")
+genre = st.radio(
+    "What's your favorite movie genre",
+    ('Comedy', 'Drama', 'Documentary'))
+
+if genre == 'Comedy':
+    st.write('You selected comedy.')
+else:
+    st.write("You didn\'t select comedy.")
+
+st.header("5e. Streamlit Select Box ")
+option = st.selectbox(
+    'How would you like to be contacted?',
+    ('Email', 'Home phone', 'Mobile phone'))
+
+st.write('You selected:', option)
+
+st.header("5f. Streamlit Multi Select ")
+options = st.multiselect(
+    'What are your favorite colors',
+    ['Green', 'Yellow', 'Red', 'Blue'],
+    ['Yellow', 'Red'])
+
+st.write('You selected:', options)
+
+st.header("5g. Streamlit Slider ")
+values = st.slider(
+    'Select a range of values',
+    0.0, 100.0, (25.0, 75.0))
+st.write('Values:', values)
+
+st.header("5g. Streamlit Select Slider ")
+color = st.select_slider(
+    'Select a color of the rainbow',
+    options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'])
+st.write('My favorite color is', color)
+
+st.header("5h. Streamlit Text Input ")
+text = st.text_input('Title Write', 'Text')
+st.write('Your Text is', text)
+
+st.header("5i. Streamlit Number Input ")
+number = st.number_input('Insert a number')
+st.write('The current number is ', number)
+
+st.header("5j. Streamlit Text Area ")
+txt = st.text_area('Text to analyze', '''
+    It was the best of times, it was the worst of times, it was
+    the age of wisdom, it was the age of foolishness, it was
+    the epoch of belief, it was the epoch of incredulity, it
+    was the season of Light, it was the season of Darkness, it
+    was the spring of hope, it was the winter of despair, (...)
+    ''')
+st.write('Sentiment:', run_sentiment_analysis(txt))
+
 # 6.  Media Element
 # 7.  Layout and Container
 # 8.  Status Element
