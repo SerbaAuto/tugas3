@@ -8,6 +8,8 @@ from bokeh.plotting import figure
 import pydeck as pdk
 import graphviz
 import datetime
+from PIL import Image
+
 
 # 1.  Write and Magic
 st.write('''
@@ -365,7 +367,20 @@ picture = st.camera_input("Take a picture")
 
 if picture:
     st.image(picture)
+
+
+st.header("5n. Streamlit Color Picker ")
+color = st.color_picker('Pick A Color', '#00f900')
+st.write('The current color is', color)
 # 6.  Media Element
+st.header("6. Media Element ")
+
+image = Image.open('Thumnail Paladin #2.png')
+Image.open()
+
+st.image(image, caption='Channel Youtube : EVAN141')
+
+
 # 7.  Layout and Container
 # 8.  Status Element
 # 9.  Control Flow
