@@ -11,6 +11,12 @@ import datetime
 from PIL import Image
 import os
 import time
+st.set_page_config(
+    page_title="Stevanus APP",
+    page_icon="🐶",
+    layout="wide",
+    initial_sidebar_state="expanded"
+    )
 
 tab1,tab2,tab3,tab4,tab5,tab6,tab7,tab8,tab9,tab10=st.tabs(["Write & Magic","Text Element","Data Display","Chart","Input","Media","Layout","Status","Control Flow","Utilities"])
 
@@ -37,25 +43,65 @@ with st.sidebar:
         st.markdown("[3d. Strealit json](#3d-strealit-json)")
     with st.expander("Nomor 4"):
         st.markdown("[4. Chart Element](#4-chart-element)")
-        st.markdown("[4a. Strealit Line Chart](#4a-strealit-line-chart)")
-        st.markdown("[4b. Strealit Area Chart](#4b-strealit-area-chart)")
-        st.markdown("[4c. Strealit Bar Chart](#4c-strealit-bar-chart)")
-        st.markdown("[4d. Strealit Pyplot](#4d-strealit-pyplot)")
-        st.markdown("[3. Data Display Element](#3-data-display-element)")
-        st.markdown("[3. Data Display Element](#3-data-display-element)")
-        st.markdown("[3. Data Display Element](#3-data-display-element)")
-        st.markdown("[3. Data Display Element](#3-data-display-element)")
-        st.markdown("[3. Data Display Element](#3-data-display-element)")
-        st.markdown("[3. Data Display Element](#3-data-display-element)")
-        st.markdown("[3. Data Display Element](#3-data-display-element)")
+        st.markdown("[4a. Streamlit Line Chart](#4a-streamlit-line-chart)")
+        st.markdown("[4b. Streamlit Area Chart](#4b-streamlit-area-chart)")
+        st.markdown("[4c. Streamlit Bar Chart](#4c-streamlit-bar-chart)")
+        st.markdown("[4d. Streamlit Pyplot](#4d-streamlit-pyplot)")
+        st.markdown("[4e. Streamlit Altair](#4e-streamlit-altair)")
+        st.markdown("[4f. Streamlit Vega Lite Chart](#4f-streamlit-vega-kite-chart)")
+        st.markdown("[4g. Streamlit Plotly Chart](#4g-streamlit-plotly-chart)")
+        st.markdown("[4h. Streamlit Bokeh Chart](#4h-streamlit-bokeh-chart)")
+        st.markdown("[4i. Streamlit Pydeck Chart](#4i-streamlit-pydeck-chart)")
+        st.markdown("[4j. Streamlit Graphviz Chart](#4j-streamlit-graphviz-chart)")
+        st.markdown("[4k. Streamlit Map Chart](#4k-streamlit-map-chart)")
+    with st.expander("Nomor 5"):
+        st.markdown("[5. Input Widget](#5-input-widget)")
+        st.markdown("[5a. Streamlit Button](#5a-streamlit-button)")
+        st.markdown("[5b. Streamlit Experimental_data_editor](#5b-streamlit-experimental-data-editor)")
+        st.markdown("[5c. Streamlit Button Download](#5c-streamlit-button-download)")
+        st.markdown("[5d. Streamlit CheckBox](#5d-streamlit-checkbox)")
+        st.markdown("[5e. Streamlit Radio](#5e-streamlit-radio)")
+        st.markdown("[5f. Streamlit Select Box](#5f-streamlit-select-box)")
+        st.markdown("[5g. Streamlit Multi Select](#5g-streamlit-multi-select)")
+        st.markdown("[5h. Streamlit Slider](#5h-streamlit-slider)")
+        st.markdown("[5i. Streamlit Select Slider](#5i-streamlit-select-slider)")
+        st.markdown("[5j. Streamlit Text Input](#5j-streamlit-text-input)")
+        st.markdown("[5k. Streamlit Number Input](#5k-streamlit-number-input)")
+        st.markdown("[5l. Streamlit Text Area](#5l-streamlit-text-area)")
+        st.markdown("[5m. Streamlit Date Input](#5m-streamlit-date-input)")
+        st.markdown("[5n. Streamlit Time Input](#5n-streamlit-time-input)")
+        st.markdown("[5o. Streamlit File Uploader](#5o-streamlit-file-uploader)")
+        st.markdown("[5p. Streamlit Color Picker](#5p-streamlit-color-picker)")
+    with st.expander("Nomor 6"):
+        st.markdown("[6. Media Element](#6-media-element)")
+        st.markdown("[6a. Streamlit Image](#6a-streamlit-image)")
+    with st.expander("Nomor 7"):
+        st.markdown("[7. Layout And Container](#7-layout-and-container)")
+        st.markdown("[7a. Sidebar](#7a-sidebar)")
+        st.markdown("[7b. Column](#7b-column)")
+        st.markdown("[7c. Tab](#7c-tab)")
+        st.markdown("[7d. Expander](#7d-expander)")
+        st.markdown("[7e. Container](#7e-container)")
+        st.markdown("[7f. Empty](#7f-empty)")
+    with st.expander("Nomor 8"):
+        st.markdown("[8. Status Element](#8-status-element)")
+        st.markdown("[8a. Progress](#8a-progress)")
+        st.markdown("[8b. Spinner](#8b-spinner)")
+        st.markdown("[8c. Balloons](#8c-balloons)")
+        st.markdown("[8d. Snow](#8d-snow)")
+        st.markdown("[8e. Error](#8e-error)")
+        st.markdown("[8f. Warning](#8f-warning)")
+        st.markdown("[8g. Info](#8g-info)")
+        st.markdown("[8h. Success](#8h-success)")
+        st.markdown("[8i. Exception](#8i-exception)")
+    with st.expander("Nomor 9"):
+        st.markdown("[9. Control Flow](#9-control-flow)")
+        st.markdown("[9a. Stop](#9a-stop)")
+        st.markdown("[9b. Form & Submit Btn](#9b-form-submit-btn)")
+        st.markdown("[9c. experimental_rerun](#9c-experimental-rerun)")
         
-# st.header("4e. Streamlit Altair")
-# st.header("4f. Streamlit Vega Lite Chart")
-# st.header("4g. Streamlit Plotly Chart")
-# st.header("4h. Streamlit Bokeh Chart")
-# st.header("4i. Streamlit Pydeck Chart")
-# st.header("4j. Streamlit Graphviz Chart")
-# st.header("4k. Streamlit Map Chart")
+# st.markdown("[](#)")
+
 
 with tab1:
     st.header("1. Write and Magic")
@@ -133,16 +179,16 @@ with tab3:
 with tab4:
     # 4.  Chart Element
     st.header("4. Chart Element")
-    st.header("4a. Strealit Line Chart")
+    st.header("4a. Streamlit Line Chart")
     st.line_chart(df)
 
-    st.header("4b. Strealit Area Chart")
+    st.header("4b. Streamlit Area Chart")
     st.area_chart(df)
 
-    st.header("4c. Strealit Bar Chart")
+    st.header("4c. Streamlit Bar Chart")
     st.bar_chart(df)
 
-    st.header("4d. Strealit Pyplot")
+    st.header("4d. Streamlit Pyplot")
 
     arr = np.random.normal(1, 1, size=100)
     fig, ax = plt.subplots()
@@ -268,10 +314,8 @@ with tab4:
 
 with tab5:
     # 5.  Input Widget
-    st.header("5 Input Widget")
-    st.write('''
-    # 5a. Streamlit Button
-    ''')
+    st.header("5. Input Widget")
+    st.header("5a. Streamlit Button")
 
     if st.button('Say hello'):
         st.write('Why hello there')
@@ -295,18 +339,18 @@ with tab5:
     st.markdown(f"Your favorite command is **{favorite_command}** 🎈")
 
 
-    st.header("5c. Streamlit Button Download ")
+    st.header("5c. Streamlit Button Download")
     csv = pd.read_csv(st.secrets['public_gsheet_csv']).to_csv()
 
     st.download_button(label="Download File Data",data=csv,file_name="data.csv",mime='text/csv')
 
-    st.header("5d. Streamlit CheckBox ")
+    st.header("5d. Streamlit CheckBox")
     agree = st.checkbox('I agree')
 
     if agree:
         st.write('Great!')
 
-    st.header("5e. Streamlit Radio ")
+    st.header("5e. Streamlit Radio")
     genre = st.radio(
         "What's your favorite movie genre",
         ('Comedy', 'Drama', 'Documentary'))
@@ -316,14 +360,14 @@ with tab5:
     else:
         st.write("You didn\'t select comedy.")
 
-    st.header("5e. Streamlit Select Box ")
+    st.header("5f. Streamlit Select Box")
     option = st.selectbox(
         'How would you like to be contacted?',
         ('Email', 'Home phone', 'Mobile phone'))
 
     st.write('You selected:', option)
 
-    st.header("5f. Streamlit Multi Select ")
+    st.header("5g. Streamlit Multi Select")
     options = st.multiselect(
         'What are your favorite colors',
         ['Green', 'Yellow', 'Red', 'Blue'],
@@ -331,27 +375,27 @@ with tab5:
 
     st.write('You selected:', options)
 
-    st.header("5g. Streamlit Slider ")
+    st.header("5h. Streamlit Slider")
     values = st.slider(
         'Select a range of values',
         0.0, 100.0, (25.0, 75.0))
     st.write('Values:', values)
 
-    st.header("5g. Streamlit Select Slider ")
+    st.header("5i. Streamlit Select Slider")
     color = st.select_slider(
         'Select a color of the rainbow',
         options=['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'])
     st.write('My favorite color is', color)
 
-    st.header("5h. Streamlit Text Input ")
+    st.header("5j. Streamlit Text Input")
     text = st.text_input('Title Write', 'Text')
     st.write('Your Text is', text)
 
-    st.header("5i. Streamlit Number Input ")
+    st.header("5k. Streamlit Number Input")
     number = st.number_input('Insert a number')
     st.write('The current number is ', number)
 
-    st.header("5j. Streamlit Text Area ")
+    st.header("5l. Streamlit Text Area")
     txt = st.text_area('Text to analyze', '''
         It was the best of times, it was the worst of times, it was
         the age of wisdom, it was the age of foolishness, it was
@@ -361,18 +405,18 @@ with tab5:
         ''')
     st.write(txt)
 
-    st.header("5k. Streamlit Date Input ")
+    st.header("5m. Streamlit Date Input")
     d = st.date_input(
         "When\'s your birthday",
         datetime.date(2023, 3, 19))
     st.write('Your birthday is:', d)
 
-    st.header("5l. Streamlit Time Input ")
+    st.header("5n. Streamlit Time Input")
     t = st.time_input('Set an alarm for', datetime.time(8, 45))
     st.write('Alarm is set for', t)
 
 
-    st.header("5m. Streamlit File Uploader ")
+    st.header("5o. Streamlit File Uploader")
     uploaded_file = st.file_uploader("Choose a file CSV")
     if uploaded_file is not None:
         # To read file as bytes:
@@ -389,12 +433,13 @@ with tab5:
         st.image(picture)
 
 
-    st.header("5n. Streamlit Color Picker ")
+    st.header("5p. Streamlit Color Picker")
     color = st.color_picker('Pick A Color', '#00f900')
     st.write('The current color is', color)
 with tab6:
     # 6.  Media Element
-    st.header("6. Media Element ")
+    st.header("6. Media Element")
+    st.header("6a. Streamlit Image")
     dir = os.getcwd()
     st.write(dir)
     image = Image.open('./Thumnail Paladin #2.png')
@@ -404,9 +449,121 @@ with tab6:
 
 # 7.  Layout and Container
 with tab7:
-    st.write("👆 This is Tab")
+    st.header("7. Layout And Container")
+    
+    st.header("7a. Sidebar")
+    st.write("👈 is SideBar")
+    st.header("7b. Column")
+    col1,col2= st.columns(2)
+    with col1:
+        st.write("This is column 1")
 
+    with col2:
+        st.write("This is column 2")
+
+    st.header("7c. Tab")
+    st.write("👆 Top Web is Tab")
+
+    st.header("7d. Expander")
+    st.write("👈 Inside Sidebar")
+
+    st.header("7e. Container")
+    with st.container():
+        st.write("This is Container")
+
+    st.header("7f. Empty")
+    st.write("10 Seconds to Destroy")
+    holder = st.empty()
+    with holder:
+        for seconds in range(10):
+            text = st.write(f"⏳ {seconds} seconds have passed")
+            time.sleep(1)
+        holder.empty()
 # 8.  Status Element
+with tab8:
+    st.header("8. Status Element")
+    st.header("8a. Progress")
+    
+    if(st.button("Start Progress")):
+        progress_text = "Operation in progress. Please wait."
+        my_bar = st.progress(0, text=progress_text)
+        for percent_complete in range(100):
+            time.sleep(0.2)
+            my_bar.progress(percent_complete + 1, text=progress_text)
+
+    st.header("8b. Spinner")
+    if(st.button("Start Spinner")):
+        with st.spinner('Wait for it...'):
+            time.sleep(5) 
+            st.success('Done!')
+
+    st.header("8c. Balloons")
+    if(st.button("Start Balloons")):
+        st.balloons()
+    st.header("8d. Snow")
+    if(st.button("Start Snow")):
+        st.snow()
+    st.header("8e. Error")
+    if(st.button("Start Error")):
+        st.error('This is an error', icon="🚨")
+    st.header("8f. Warning")
+    if(st.button("Start Warning")):
+        st.warning('This is a warning', icon="⚠️")
+    st.header("8g. Info")
+    if(st.button("Start Info")):
+        st.info('This is a purely informational message', icon="ℹ️")
+    st.header("8h. Success")
+    if(st.button("Start Success")):
+        st.success('This is a success message!', icon="✅")
+    st.header("8i. Exception")
+    if(st.button("Start Exception")):
+        e = RuntimeError('This is an exception of type RuntimeError')
+        st.exception(e)
+
 # 9.  Control Flow
+with tab9:
+    st.header("9. Control Flow")
+    st.header("9a. Stop")
+    st.title("Empty Text to Stop")
+    name = st.text_input('Name',"Name")
+    if not name:
+        st.warning('Please input a name.')
+        st.stop()
+        st.success('Thank you for inputting a name.')
+    
+    st.header("9b. Form & Submit Btn")
+    with st.form("my_form"):
+        st.write("Form")
+        slider_val = st.slider("Form slider")
+        checkbox_val = st.checkbox("Form checkbox")
+
+        # Every form must have a submit button.
+        submitted = st.form_submit_button("Submit")
+        if submitted:
+            st.write("slider", slider_val, "checkbox", checkbox_val)
+
+    st.header("9c. experimental_rerun")
+    if(st.button("Start Experimental Rerun")):
+        st.experimental_rerun()
+
 # 10. Utilities
+with tab10:
+    st.header("10. Utilities")
+    st.header("10a. Set Page Config")
+    st.write("Already build")
+    
+    st.header("10b. Echo")
+    with st.echo():
+        st.write('This code will be printed')
+
+    st.header("10c. Help")
+    with st.expander("Help Dataframe"):
+        st.help(pd.DataFrame)
+    
+    st.header("10d. Experimental Show")
+    dataframe = pd.DataFrame({
+    'first column': [1, 2, 3, 4],
+    'second column': [10, 20, 30, 40],
+    })
+    st.experimental_show(dataframe)
     
