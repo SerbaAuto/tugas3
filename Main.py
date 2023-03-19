@@ -566,4 +566,15 @@ with tab10:
     'second column': [10, 20, 30, 40],
     })
     st.experimental_show(dataframe)
+
+    st.header("10e. Experimental Get Query Params")
+    st.experimental_get_query_params()
+    {"show_map": ["True"], "selected": ["asia", "america"]}
+
+    st.header("10f. Experimental Set Query Params")
+    st.experimental_set_query_params(
+    show_map=True,
+    selected=["Rusia", "america"],
+    )
+    
     
